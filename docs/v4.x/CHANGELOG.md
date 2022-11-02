@@ -58,7 +58,7 @@ All notable changes to `laravel-subby` will be documented in this file.
 
 #### Breaking Changes
 
-- `newSubscription()` method fourth parameter is `$description` instead of `$startDate`. By default, it takes plan's
+- `newSubscriptionPlan()` method fourth parameter is `$description` instead of `$startDate`. By default, it takes plan's
   description.
 
 ### Plan subscription usage

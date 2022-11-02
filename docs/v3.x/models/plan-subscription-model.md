@@ -2,19 +2,19 @@
 
 ## Create a Subscription<a name="create-subscription"></a>
 
-You can subscribe a user (or any model correctly traited) to a plan by using the `newSubscription()` function available
+You can subscribe a user (or any model correctly traited) to a plan by using the `newSubscriptionPlan()` function available
 in the `HasSubscriptions` trait. First, retrieve an instance of your subscriber model, which typically will be your user
 model and an instance of the plan your user is subscribing to. Once you have retrieved the model instance, you may use
-the `newSubscription` method to create the model's subscription.
+the `newSubscriptionPlan` method to create the model's subscription.
 
 ```php
 $user = User::find(1);
 $plan = Plan::find(1);
 
-$user->newSubscription('main', $plan, 'Main subscription');
+$user->newSubscriptionPlan('main', $plan, 'Main subscription');
 ```
 
-The first argument passed to `newSubscription` method should be the identifier tag of the subscription. If your
+The first argument passed to `newSubscriptionPlan` method should be the identifier tag of the subscription. If your
 application offer a single subscription, you might call this `main` or `primary`. The second argument is the plan
 instance your user is subscribing to and the third argument is a human readable name for your subscription.
 

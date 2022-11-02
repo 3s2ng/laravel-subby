@@ -25,7 +25,7 @@ class PendingPaymentCollectorTest extends TestCase
         // Generate 3 users with subscription
         $users = UserFactory::new()->count(3)->create();
         foreach ($users as $user) {
-            $user->newSubscription('main', $this->testPlanBasic);
+            $user->newSubscriptionPlan('main', $this->testPlanBasic);
         }
 
         $this->travelTo($users[0]->subscription('main')->ends_at->addSecond());
@@ -44,7 +44,7 @@ class PendingPaymentCollectorTest extends TestCase
         // Generate 3 users with subscription
         $users = UserFactory::new()->count(3)->create();
         foreach ($users as $user) {
-            $user->newSubscription('main', $this->testPlanBasic);
+            $user->newSubscriptionPlan('main', $this->testPlanBasic);
         }
 
         // Schedule first user to end_date
@@ -74,7 +74,7 @@ class PendingPaymentCollectorTest extends TestCase
 
         // Generate user with subscription
         $user = UserFactory::new()->create();
-        $user->newSubscription('main', $this->testPlanBasic);
+        $user->newSubscriptionPlan('main', $this->testPlanBasic);
 
         // Schedule to end_date
         $date = $user->subscription('main')->ends_at;

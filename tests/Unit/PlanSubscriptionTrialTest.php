@@ -33,7 +33,7 @@ class PlanSubscriptionTrialTest extends TestCase
         ]);
 
         $user = UserFactory::new()->create();
-        $user->newSubscription('main', $plan, 'Main subscription', 'Customer main subscription');
+        $user->newSubscriptionPlan('main', $plan, 'Main subscription', 'Customer main subscription');
 
         // Subscription is not on trial and trial has ended because it never had one
         $this->assertFalse($user->subscription('main')->isOnTrial());
@@ -71,7 +71,7 @@ class PlanSubscriptionTrialTest extends TestCase
         ]);
 
         $user = UserFactory::new()->create();
-        $user->newSubscription('main', $plan, 'Main subscription', 'Customer main subscription');
+        $user->newSubscriptionPlan('main', $plan, 'Main subscription', 'Customer main subscription');
 
         // Subscription is on trial and trial, hence it has not ended and its active
         $this->assertTrue($user->subscription('main')->isOnTrial());

@@ -20,7 +20,7 @@ class PlanSubscriptionTest extends TestCase
     public function testUnableToCreatePlanSubscriptionWithExistingTag()
     {
         $this->expectException('Bpuig\Subby\Exceptions\DuplicateException');
-        $this->testUser->newSubscription('main', $this->testPlanBasic, 'Test');
+        $this->testUser->newSubscriptionPlan('main', $this->testPlanBasic, 'Test');
     }
 
     /**
@@ -32,7 +32,7 @@ class PlanSubscriptionTest extends TestCase
         $anExceptionWasThrown = false;
 
         try {
-            $this->testUser->newSubscription('main', $this->testPlanBasic, 'Test');
+            $this->testUser->newSubscriptionPlan('main', $this->testPlanBasic, 'Test');
         } catch (QueryException $e) {
             $anExceptionWasThrown = true;
         }
@@ -45,7 +45,7 @@ class PlanSubscriptionTest extends TestCase
      */
     public function testSubscriptionToAPlanCombination()
     {
-        $this->testUser->newSubscription('combination-test', $this->testPlanBasic->combinations()->first(), 'Test a combination subscription');
+        $this->testUser->newSubscriptionPlan('combination-test', $this->testPlanBasic->combinations()->first(), 'Test a combination subscription');
         $this->assertNotNull($this->testUser->subscription('combination-test'));
     }
 

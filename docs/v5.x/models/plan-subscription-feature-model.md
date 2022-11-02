@@ -29,7 +29,7 @@ Features are assigned and inherited from plan when user is subscribed to a plan.
 features into the subscription.
 
 ```php
-$user->newSubscription('main', $plan, 'Main subscription', 'Customer main subscription');
+$user->newSubscriptionPlan('main', $plan, 'Main subscription', 'Customer main subscription');
 ```
 
 Now subscriber's subscription will have all current plan features.

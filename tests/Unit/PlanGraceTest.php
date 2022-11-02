@@ -45,7 +45,7 @@ class PlanGraceTest extends TestCase
     public function testSubscriptionHasGrace($plan): void
     {
         $user = UserFactory::new()->create();
-        $user->newSubscription('grace', $plan);
+        $user->newSubscriptionPlan('grace', $plan);
 
         $this->assertTrue($user->subscription('grace')->hasGrace());
     }
@@ -57,7 +57,7 @@ class PlanGraceTest extends TestCase
     public function testSubscriptionIsActiveOnGrace($plan): void
     {
         $user = UserFactory::new()->create();
-        $user->newSubscription('grace', $plan);
+        $user->newSubscriptionPlan('grace', $plan);
 
         // Travel one second after subscription ends
         $this->travelTo($user->subscription('grace')->ends_at->addSecond());
@@ -74,7 +74,7 @@ class PlanGraceTest extends TestCase
     public function testSubscriptionIsNotActiveOnGraceEnd($plan): void
     {
         $user = UserFactory::new()->create();
-        $user->newSubscription('grace', $plan);
+        $user->newSubscriptionPlan('grace', $plan);
 
         $graceSubscription = $user->subscription('grace');
 
